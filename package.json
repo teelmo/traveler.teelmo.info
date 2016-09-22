@@ -7,6 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Teemo Tebest, teemo.tebest@gmail.com",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/teelmo/traveler.git"
+  },
+  "dependencies": {
+    "d3": "^4.2.5",
+    "datamaps": "^0.5.7",
+    "topojson": "^1.6.27"
+  }
 }
