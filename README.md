@@ -4,6 +4,6 @@ My Travel destinations
 
 ## Technologies
 
-*Datamaps
-*Topojson
-*D3
+* Datamaps
+* Topojson
+* D3
