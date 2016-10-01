@@ -2,7 +2,7 @@
   var d3 = require('d3');
   var topojson = require('topojson');
   var Datamap = require('datamaps');
-  app = {
+  var app = {
     initMap: function () {
       app.map = new Datamap({
         element: $('.map')[0],
@@ -38,7 +38,7 @@
       });
     },
     initEvents: function () {
-      window.addEventListener('resize', function(event){
+      window.addEventListener('resize', function(event) {
         app.map.resize();
       });
     },
