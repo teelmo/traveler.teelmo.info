@@ -1,88 +1,98 @@
 // Gulp Dependencies
+'use strict'
 process.argv.push('--silent');
-var gulp = require('gulp');
-var concat = require('gulp-concat');
-var gutil = require('gulp-util');
-var gif = require('gulp-if');
-var args = require('yargs').argv;
-var runSequence = require('run-sequence');
-var sourcemaps = require('gulp-sourcemaps');
+const gulp = require('gulp');
+const concat = require('gulp-concat');
+const gutil = require('gulp-util');
+const gif = require('gulp-if');
+const args = require('yargs').argv;
+const runSequence = require('run-sequence');
+const sourcemaps = require('gulp-sourcemaps');
+const chalk = require('chalk');
 
 // Html Dependencies
-var htmlmin = require('gulp-htmlmin');
+const htmlmin = require('gulp-htmlmin');
 
 // Style Dependencies
-var less = require('gulp-less');
-var cleancss = require('gulp-clean-css');
-var autoprefixer = require('gulp-autoprefixer');
+const less = require('gulp-less');
+const cleancss = require('gulp-clean-css');
+const autoprefixer = require('gulp-autoprefixer');
 
 // Javascript Dependencies
-var browserify = require('gulp-browserify');
-var uglify = require('gulp-uglify');
-var jshint = require('gulp-jshint');
-var stripDebug = require('gulp-strip-debug');
+const browserify = require('browserify');
+const source = require('vinyl-source-stream');
+const buffer = require('vinyl-buffer');
+const uglify = require('gulp-uglify');
+const insert = require('gulp-insert');
+const eslint = require('gulp-eslint');
+const stripDebug = require('gulp-strip-debug');
+const babelify = require('babelify');
 
 // LiveReload Dependencies
-// var browserSync = require("browser-sync").create();
-var livereload = require('gulp-livereload');
-var live = 'livereload()';
+// const browserSync = require("browser-sync").create();
+const livereload = require('gulp-livereload');
+let live = 'livereload()';
 
-gulp.task('default', function () {
+gulp.task('default', () => {
   runSequence('livereload');
   runSequence('watch');
 });
 
-gulp.task('livereload', function () {
+gulp.task('livereload', () => {
   live = 'livereload()';
   livereload.listen();
 });
 
-// gulp.task('browser-sync', function() {
+// gulp.task('browser-sync', () => {
 //   live = 'browserSync.stream()';
 //   browserSync.init({
 //     proxy: "dev2.yle.fi"
 //   });
 // });
 
-gulp.task('watch', function () {
+gulp.task('watch', () => {
   // Watch Html.
-  gulp.watch('index.html', function (file) {
+  gulp.watch('index.html', (file) => {
     runSequence('build-html');
-  }).on('error', function (err) {
-    gutil.log(err);
-  });
+  }).on('error', map_error);
 
   // Watch CSS.
-  gulp.watch('css/styles.less', function (file) {
+  gulp.watch('css/styles.less', (file) => {
     runSequence('build-css');
-  }).on('error', function (err) {
-    gutil.log(err);
-  });
+  }).on('error', map_error);
 
   // Watch JS.
-  gulp.watch('js/script.js', function (file) {
+  gulp.watch('js/script.js', (file) => {
     runSequence('build-js');
-  }).on('error', function (err) {
-    gutil.log(err);
-  });
+  }).on('error', map_error);
 });
 
 // Build all.
-gulp.task('build', function() {
+gulp.task('build', () => {
   runSequence('build-html');
   runSequence('build-css');
   runSequence('build-js');
 });
 
 // Build Html.
-gulp.task('build-html', function() {
+gulp.task('build-html', () => {
   if (args.env === 'prod') {
     return gulp.src(['./index.html'])
       .pipe(htmlmin({
         collapseWhitespace:true
       }))
       .pipe(gulp.dest('./public'))
-      .pipe(eval(live));
+  }
+  else if (args.env === 'standalone') {
+    gulp.src(['./index.html'])
+      .pipe(htmlmin({
+        collapseWhitespace:true
+      }))
+      .pipe(gulp.dest('./public'))
+    return gulp.src(['./index.html'])
+      .pipe(insert.prepend('<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script><script src="https://plus.yle.fi/2018-06-elakejuttu/js/libs/select2.min.js" type="text/javascript"></script><link href="../css/styles.min.css" rel="stylesheet" type="text/css"><link href="https://plus.yle.fi/2018-06-elakejuttu/css/libs/select2.min.css" rel="stylesheet" type="text/css"></head><body>'))
+      .pipe(insert.append('</body><script src="../js/script.min.js" type="text/javascript"></script></html>'))
+      .pipe(gulp.dest('./public/standalone'));
   }
   else {
     return gulp.src(['./index.html'])
@@ -92,14 +102,11 @@ gulp.task('build-html', function() {
 });
 
 // Build CSS.
-gulp.task('build-css', function() {
+gulp.task('build-css', () => {
   if (args.env === 'prod') {
     return gulp.src(['./css/styles.less'])
+      .pipe(less()).on('error', map_error)
       .pipe(sourcemaps.init())
-      .pipe(less()).on('error', function (err) {
-        gutil.log(err);
-        this.emit('end');
-      })
       .pipe(autoprefixer({
         browsers:['last 2 versions'],
         cascade:false
@@ -107,70 +114,90 @@ gulp.task('build-css', function() {
       .pipe(cleancss())
       .pipe(concat('styles.min.css'))
       .pipe(sourcemaps.write('.'))
-      .pipe(gulp.dest('./public/css')).on('error', gutil.log)
-      .pipe(gif('*.css', eval(live)));
+      .pipe(gulp.dest('./public/css'));
   }
   else {
     return gulp.src(['./css/styles.less'])
+      .pipe(less()).on('error', map_error)
       .pipe(sourcemaps.init())
-      .pipe(less()).on('error', function (err) {
-        gutil.log(err);
-        this.emit('end');
-      })
-      .pipe(autoprefixer({
-        browsers:['last 2 versions'],
-        cascade:false
-      }))
       .pipe(cleancss())
       .pipe(concat('styles.min.css'))
       .pipe(sourcemaps.write('.'))
-      .pipe(gulp.dest('./public/css')).on('error', gutil.log)
+      .pipe(gulp.dest('./public/css'))
       .pipe(gif('*.css', eval(live)));
   }
 });
 
 // Build JS.
-gulp.task('build-js', ['lint'], function () {
+gulp.task('build-js', ['lint'], () => {
+  const b = browserify({
+    entries:'./js/script.js',
+    insertGlobals:false,
+    debug:false,
+    transform:[babelify.configure({
+      presets:['es2015'],
+      sourceMaps:true
+    })]
+  });
+
   if (args.env === 'prod') {
-    return gulp.src(['./js/script.js'])
-      .pipe(browserify({
-        insertGlobals:false,
-        debug:false
-      })).on('error', function (err) {
-        gutil.log(err);
-        this.emit('end');
-      })
+    return b.bundle()
+      .on('error', map_error)
+      .pipe(source('script.js'))
+      .pipe(buffer())
       .pipe(sourcemaps.init())
       .pipe(uglify({
-        compress:true,
-        mangle:true
+        compress:true
       }))
       .pipe(stripDebug())
       .pipe(concat('script.min.js'))
+      .pipe(insert.wrap('(function () { var define = undefined;','})();'))
       .pipe(sourcemaps.write('.'))
-      .pipe(gulp.dest('./public/js')).on('error', gutil.log)
-      .pipe(gif('*.js', eval(live)));
+      .pipe(gulp.dest('./public/js'));
   }
   else {
-    return gulp.src(['./js/script.js'])
-      .pipe(browserify({
-        insertGlobals:false,
-        debug:false
-      })).on('error', function (err) {
-        gutil.log(err);
-        this.emit('end');
-      })
+    return b.bundle()
+      .on('error', map_error)
+      .pipe(source('script.js'))
+      .pipe(buffer())
       .pipe(sourcemaps.init())
       .pipe(concat('script.min.js'))
       .pipe(sourcemaps.write('.'))
-      .pipe(gulp.dest('./public/js')).on('error', gutil.log)
+      .pipe(gulp.dest('./public/js'))
       .pipe(gif('*.js', eval(live)));
   }
 });
 
 // Linting.
-gulp.task('lint', function () {
+gulp.task('lint', () => {
   return gulp.src('./js/script.js')
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'));
+    .on('error', map_error)
+    .pipe(eslint({configFile: 'eslintrc.json'}))
+    .pipe(eslint.format())
+    // .pipe(eslint.failAfterError());
 });
+
+// Error handling.
+function map_error (err) {
+  if (err.fileName) {
+    // regular error
+    gutil.log(chalk.red(err.name)
+      + ': '
+      + chalk.yellow(err.fileName.replace(__dirname + '/js/', ''))
+      + ': '
+      + 'Line '
+      + chalk.magenta(err.lineNumber)
+      + ' & '
+      + 'Column '
+      + chalk.magenta(err.columnNumber || err.column)
+      + ': '
+      + chalk.blue(err.description))
+  }
+  else {
+    // browserify error..
+    gutil.log(chalk.red(err.name)
+      + ': '
+      + chalk.yellow(err.message))
+  }
+  this.emit('end');
+}

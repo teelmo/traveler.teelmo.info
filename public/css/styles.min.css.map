@@ -1,1 +1,1 @@
-{"version":3,"sources":["styles.css","styles.less"],"names":[],"mappings":"AACA,KCDA,KACE,QAAA,EACA,OAAA","file":"styles.min.css","sourcesContent":["html,\nbody {\n  padding: 0;\n  margin: 0;\n}\n","html, body {\n  padding: 0;\n  margin: 0;\n}"],"sourceRoot":"/source/"}
+{"version":3,"sources":["styles.css"],"names":[],"mappings":"AACA,KADA,KAEE,QAAS,EACT,OAAQ","file":"styles.min.css","sourcesContent":[]}
