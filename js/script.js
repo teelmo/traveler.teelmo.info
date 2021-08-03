@@ -32,6 +32,7 @@
           GBR: { fillKey: 'authorHasTraveledTo' },
           HUN: { fillKey: 'authorHasTraveledTo' },
           ITA: { fillKey: 'authorHasTraveledTo' },
+          LIE: { fillKey: 'authorHasTraveledTo' },
           LVA: { fillKey: 'authorHasTraveledTo' },
           NOR: { fillKey: 'authorHasTraveledTo' },
           SWE: { fillKey: 'authorHasTraveledTo' },
