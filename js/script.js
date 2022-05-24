@@ -34,6 +34,7 @@
           ITA: { fillKey: 'authorHasTraveledTo' },
           LIE: { fillKey: 'authorHasTraveledTo' },
           LVA: { fillKey: 'authorHasTraveledTo' },
+          MNE: { fillKey: 'authorHasTraveledTo' },
           NOR: { fillKey: 'authorHasTraveledTo' },
           SWE: { fillKey: 'authorHasTraveledTo' },
           TUN: { fillKey: 'authorHasTraveledTo' },
