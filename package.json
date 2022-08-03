@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "start": "webpack serve --open --config webpack.dev.js",
+    "sync-gh-pages": "git subtree push --prefix public origin gh-pages",
     "sync-prod": "ssh teelmo@teelmo.info git -C /var/www/traveler.teelmo.info pull"
   },
   "keywords": [],
