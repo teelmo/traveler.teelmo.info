@@ -42,10 +42,6 @@
   "dependencies": {
     "d3": "^7.4.4",
     "d3-geo-projection": "^4.0.0",
-    "datamaps": "^0.5.9",
-    "intersection-observer": "^0.12.2",
-    "react-circle-flags": "^0.0.17",
-    "react-is-visible": "^1.2.0",
-    "react-tooltip": "^4.2.21"
+    "datamaps": "^0.5.9"
   }
 }
