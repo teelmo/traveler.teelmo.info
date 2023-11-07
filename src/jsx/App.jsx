@@ -226,6 +226,42 @@ function App() {
             lat: 48.2082,
             lon: 16.3738
           }, {
+            name: 'Vorderkrimml',
+            lat: 47.2397,
+            lon: 12.1962
+          }, {
+            name: 'Helsinki',
+            lat: 60.1699,
+            lon: 24.9384
+          }, {
+            name: 'Rovaniemi',
+            lat: 66.5039,
+            lon: 25.7294
+          }, {
+            name: 'Inari',
+            lat: 68.9062,
+            lon: 27.0278
+          }, {
+            name: 'Nakkila',
+            lat: 61.3648,
+            lon: 22.0054
+          }, {
+            name: 'Pori',
+            lat: 61.4851,
+            lon: 21.7974
+          }, {
+            name: 'Tampere',
+            lat: 61.4978,
+            lon: 23.7610
+          }, {
+            name: 'Kuopio',
+            lat: 62.8980,
+            lon: 27.6782
+          }, {
+            name: 'Kemijärvi',
+            lat: 66.7136,
+            lon: 27.4292
+          }, {
             name: 'Skopje',
             lat: 41.9981,
             lon: 21.4254
