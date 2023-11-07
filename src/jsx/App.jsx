@@ -41,9 +41,9 @@ function App() {
           enabled: true
         },
         mapView: {
-          center: [20, 10],
           projection: {
-            name: 'EqualEarth',
+            name: 'Orthographic',
+            rotation: [30, -30, 0]
           },
         },
         plotOptions: {
