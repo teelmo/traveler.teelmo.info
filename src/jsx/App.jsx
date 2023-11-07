@@ -222,6 +222,14 @@ function App() {
             lat: 50.9375,
             lon: 6.9603
           }, {
+            name: 'Bad Kissingen',
+            lat: 50.1986,
+            lon: 10.0756
+          }, {
+            name: 'Garmisch-Partenkirchen',
+            lat: 47.4919,
+            lon: 11.0948
+          }, {
             name: 'Vienna',
             lat: 48.2082,
             lon: 16.3738
