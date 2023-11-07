@@ -277,6 +277,22 @@ function App() {
             lat: 61.3648,
             lon: 22.0054
           }, {
+            name: 'Jyväskylä',
+            lat: 62.2426,
+            lon: 25.7473
+          }, {
+            name: 'Rauma',
+            lat: 61.1309,
+            lon: 21.5059
+          }, {
+            name: 'Ikaalinen',
+            lat: 61.7682,
+            lon: 23.0747
+          }, {
+            name: 'Harjavalta',
+            lat: 61.3137,
+            lon: 22.1413
+          }, {
             name: 'Pori',
             lat: 61.4851,
             lon: 21.7974
