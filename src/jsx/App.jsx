@@ -25,18 +25,18 @@ function App() {
       // Initialize the chart
       Highcharts.mapChart('map_container', {
         accessibility: {
-          description: 'Map where city locations have been defined using lat/longitude.'
+          description: ''
         },
         chart: {
-          map: topology,
-          height: Math.max(window.innerHeight, 800)
+          height: Math.max(window.innerHeight, 800),
+          map: topology
         },
         credits: {
           enabled: false
         },
         legend: {
-          verticalAlign: 'top',
-          enabled: true
+          enabled: true,
+          verticalAlign: 'top'
         },
         mapNavigation: {
           enabled: true
@@ -61,97 +61,68 @@ function App() {
         series: [{
           borderColor: '#fff',
           borderWidth: 2,
-          tooltip: {
-            headerFormat: '',
-            pointFormat: '<b>{point.name}</b>'
-          },
+          color: '#2ab7ca',
           data: [{
-            name: 'Austria',
-            color: '#2ab7ca'
+            name: 'Austria'
           }, {
-            name: 'Belgium',
-            color: '#2ab7ca'
+            name: 'Belgium'
           }, {
-            name: 'Canada',
-            color: '#2ab7ca'
+            name: 'Canada'
           }, {
-            name: 'Switzerland',
-            color: '#2ab7ca'
+            name: 'Switzerland'
           }, {
-            name: 'Cyprus',
-            color: '#2ab7ca'
+            name: 'Cyprus'
           }, {
-            name: 'Germany',
-            color: '#2ab7ca'
+            name: 'Germany'
           }, {
-            name: 'Denmark',
-            color: '#2ab7ca'
+            name: 'Denmark'
           }, {
-            name: 'Ecuador',
-            color: '#2ab7ca'
+            name: 'Ecuador'
           }, {
-            name: 'Spain',
-            color: '#2ab7ca'
+            name: 'Spain'
           }, {
-            name: 'Estonia',
-            color: '#2ab7ca'
+            name: 'Estonia'
           }, {
-            name: 'Finland',
-            color: '#2ab7ca'
+            name: 'Finland'
           }, {
-            name: 'France',
-            color: '#2ab7ca'
+            name: 'France'
           }, {
-            name: 'Great Britain',
-            color: '#2ab7ca'
+            name: 'Great Britain'
           }, {
-            name: 'Hungary',
-            color: '#2ab7ca'
+            name: 'Hungary'
           }, {
-            name: 'Italy',
-            color: '#2ab7ca'
+            name: 'Italy'
           }, {
-            name: 'Liechtenstein',
-            color: '#2ab7ca'
+            name: 'Liechtenstein'
           }, {
-            name: 'Latvia',
-            color: '#2ab7ca'
+            name: 'Latvia'
           }, {
-            name: 'Mexico',
-            color: '#2ab7ca'
+            name: 'Mexico'
           }, {
-            name: 'Macedonia',
-            color: '#2ab7ca'
+            name: 'Macedonia'
           }, {
-            name: 'Norway',
-            color: '#2ab7ca'
+            name: 'Norway'
           }, {
-            name: 'Sweden',
-            color: '#2ab7ca'
+            name: 'Sweden'
           }, {
-            name: 'Tunisia',
-            color: '#2ab7ca'
+            name: 'Tunisia'
           }, {
-            name: 'Turkey',
-            color: '#2ab7ca'
+            name: 'Turkey'
           }, {
-            name: 'United Kingdom',
-            color: '#2ab7ca'
+            name: 'United Kingdom'
           }, {
             name: 'United States of America',
             color: '#2ab7ca'
           }],
+          joinBy: ['name', 'name'],
           name: 'Visited countries',
           nullColor: '#f4f4f8',
           showInLegend: true,
-          joinBy: ['name', 'name'],
-        }, {
           tooltip: {
             headerFormat: '',
             pointFormat: '<b>{point.name}</b>'
-          },
-          type: 'mappoint',
-          name: 'Visited cities',
+          }
+        }, {
           color: '#000',
           data: [{
             name: 'Austin',
@@ -187,8 +158,24 @@ function App() {
             lon: -78.4678
           }, {
             name: 'Olon',
-            lat: 1.7966,
+            lat: -1.7966,
             lon: -80.7568
+          }, {
+            name: 'Banos',
+            lat: -1.3928,
+            lon: -78.4269
+          }, {
+            name: 'Cotopaxi',
+            lat: -0.6838,
+            lon: -78.4372
+          }, {
+            name: 'Quilotoa',
+            lat: -0.8583,
+            lon: -78.9034
+          }, {
+            name: 'Otavalo',
+            lat: 0.2343,
+            lon: -78.2611
           }, {
             name: 'Cuenca',
             lat: -2.9001,
@@ -409,7 +396,13 @@ function App() {
             name: 'Vaduz',
             lat: 47.1410,
             lon: 9.5209
-          }]
+          }],
+          name: 'Visited cities',
+          tooltip: {
+            headerFormat: '',
+            pointFormat: '<b>{point.name}</b>'
+          },
+          type: 'mappoint',
         }],
         title: {
           text: null
