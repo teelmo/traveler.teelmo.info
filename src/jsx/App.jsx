@@ -260,7 +260,7 @@ function App() {
             name: 'Helsinki',
             lat: 60.1699,
             lon: 24.9384
-          }, {
+          }, /* {
             name: 'Rovaniemi',
             lat: 66.5039,
             lon: 25.7294
@@ -316,7 +316,7 @@ function App() {
             name: 'Kuusamo',
             lat: 65.9646,
             lon: 29.1887
-          }, {
+          }, */ {
             name: 'Skopje',
             lat: 41.9981,
             lon: 21.4254
@@ -396,11 +396,11 @@ function App() {
             name: 'Geneva',
             lat: 46.2044,
             lon: 6.1432
-          }, {
+          }, /* {
             name: 'Zürich',
             lat: 47.3769,
             lon: 8.5417
-          }, {
+          } */ {
             name: 'Nikosia',
             lat: 35.1856,
             lon: 33.3823
