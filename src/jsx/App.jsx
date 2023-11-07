@@ -154,6 +154,14 @@ function App() {
             lat: 30.2672,
             lon: -97.7431
           }, {
+            name: 'Miami',
+            lat: 25.7617,
+            lon: -80.1918
+          }, {
+            name: 'Orlando',
+            lat: 28.5384,
+            lon: -81.3789
+          }, {
             name: 'Vancouver',
             lat: 49.2827,
             lon: -123.1207
@@ -173,6 +181,10 @@ function App() {
             name: 'Quito',
             lat: 0.1807,
             lon: -78.4678
+          }, {
+            name: 'Olon',
+            lat: 1.7966,
+            lon: -80.7568
           }, {
             name: 'Cuenca',
             lat: -2.9001,
