@@ -35,7 +35,8 @@ function App() {
           enabled: false
         },
         legend: {
-          enabled: false
+          verticalAlign: 'top',
+          enabled: true
         },
         mapNavigation: {
           enabled: true
@@ -140,9 +141,9 @@ function App() {
             name: 'United States of America',
             color: '#2ab7ca'
           }],
-          name: 'World',
+          name: 'Visited countries',
           nullColor: '#f4f4f8',
-          showInLegend: false,
+          showInLegend: true,
           joinBy: ['name', 'name'],
         }, {
           tooltip: {
@@ -150,7 +151,7 @@ function App() {
             pointFormat: '<b>{point.name}</b>'
           },
           type: 'mappoint',
-          name: 'Cities',
+          name: 'Visited cities',
           color: '#000',
           data: [{
             name: 'Austin',
