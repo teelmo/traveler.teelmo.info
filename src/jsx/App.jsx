@@ -29,7 +29,7 @@ function App() {
         },
         chart: {
           map: topology,
-          height: 800
+          height: Math.max(window.innerHeight, 800)
         },
         credits: {
           enabled: false
@@ -134,6 +134,9 @@ function App() {
             name: 'Turkey',
             color: '#2ab7ca'
           }, {
+            name: 'United Kingdom',
+            color: '#2ab7ca'
+          }, {
             name: 'United States of America',
             color: '#2ab7ca'
           }],
@@ -218,6 +221,10 @@ function App() {
             lat: 48.8566,
             lon: 2.3522
           }, {
+            name: 'Annecy',
+            lat: 45.8992,
+            lon: 6.1294
+          }, {
             name: 'Berlin',
             lat: 52.5200,
             lon: 13.4050
@@ -262,6 +269,10 @@ function App() {
             lat: 68.9062,
             lon: 27.0278
           }, {
+            name: 'Kittilä',
+            lat: 67.6507,
+            lon: 24.9158
+          }, {
             name: 'Nakkila',
             lat: 61.3648,
             lon: 22.0054
@@ -282,6 +293,14 @@ function App() {
             lat: 66.7136,
             lon: 27.4292
           }, {
+            name: 'Tammisaari',
+            lat: 59.9742,
+            lon: 23.4376
+          }, {
+            name: 'Kuusamo',
+            lat: 65.9646,
+            lon: 29.1887
+          }, {
             name: 'Skopje',
             lat: 41.9981,
             lon: 21.4254
@@ -298,6 +317,14 @@ function App() {
             lat: 37.5079,
             lon: 15.0830
           }, {
+            name: 'Taormina',
+            lat: 37.8516,
+            lon: 15.2853
+          }, {
+            name: 'Syracuse',
+            lat: 37.0755,
+            lon: 15.2866
+          }, {
             name: 'Budapest',
             lat: 47.4979,
             lon: 19.0402
@@ -305,6 +332,10 @@ function App() {
             name: 'Stockholm',
             lat: 59.3293,
             lon: 18.0686
+          }, {
+            name: 'Gävle',
+            lat: 60.6749,
+            lon: 17.1413
           }, {
             name: 'Hudiksvall',
             lat: 61.7274,
@@ -349,6 +380,10 @@ function App() {
             name: 'Geneva',
             lat: 46.2044,
             lon: 6.1432
+          }, {
+            name: 'Zürich',
+            lat: 47.3769,
+            lon: 8.5417
           }, {
             name: 'Nikosia',
             lat: 35.1856,
