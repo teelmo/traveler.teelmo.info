@@ -193,7 +193,7 @@ function App() {
             lat: 38.3460,
             lon: -0.4907
           }, {
-            name: 'Alicante',
+            name: 'Marbella',
             lat: 36.5103,
             lon: -4.8853
           }, {
