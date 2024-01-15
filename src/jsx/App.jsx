@@ -359,6 +359,10 @@ function App() {
             lat: 59.4370,
             lon: 24.7536
           }, {
+            name: 'Tartu',
+            lat: 58.3749452,
+            lon: 26.6913456
+          }, {
             name: 'Riga',
             lat: 56.9677,
             lon: 24.1056
