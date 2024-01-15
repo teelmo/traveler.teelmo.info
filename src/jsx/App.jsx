@@ -69,6 +69,8 @@ function App() {
           }, {
             name: 'Canada'
           }, {
+            name: 'Bulgaria'
+          }, {
             name: 'Switzerland'
           }, {
             name: 'Cyprus'
@@ -396,6 +398,10 @@ function App() {
             name: 'Vaduz',
             lat: 47.1410,
             lon: 9.5209
+          }, {
+            name: 'Sofia',
+            lat: 42.6977,
+            lon: 23.3219
           }],
           name: 'Visited cities',
           tooltip: {
