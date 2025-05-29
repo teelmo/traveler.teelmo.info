@@ -103,6 +103,10 @@ function App() {
           }, {
             name: 'Mexico'
           }, {
+            name: 'Croatia'
+          }, {
+            name: 'Montenegro'
+          }, {
             name: 'Macedonia'
           }, {
             name: 'Norway'
@@ -148,6 +152,26 @@ function App() {
             name: 'New York',
             lat: 40.7128,
             lon: -74.0060
+          }, {
+            name: 'San Pedro de Atacama',
+            lat: -22.914013,
+            lon: -68.2181485
+          }, {
+            name: 'Viña del Mar',
+            lat: -33.0099729,
+            lon: -71.5664279
+          }, {
+            name: 'Castro',
+            lat: -42.4975,
+            lon: -73.7983047
+          }, {
+            name: 'Herceg Novi',
+            lat: 42.4575449,
+            lon: 18.527458
+          }, {
+            name: 'Cavtat',
+            lat: 42.5824406,
+            lon: 18.1914998
           }, {
             name: 'Mexico City',
             lat: 19.4326,
