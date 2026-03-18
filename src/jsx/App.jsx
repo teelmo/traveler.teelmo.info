@@ -119,6 +119,8 @@ function App() {
           }, {
             name: 'United Kingdom'
           }, {
+            name: 'Peru'
+          }, {
             name: 'United States of America',
             color: '#2ab7ca'
           }],
@@ -436,6 +438,10 @@ function App() {
             name: 'Santiago',
             lat: -33.45694,
             lon: -70.64827
+          }, {
+            name: 'Lima',
+            lat: -12.0265898,
+            lon: -77.1529304
           }],
           name: 'Visited cities',
           tooltip: {
