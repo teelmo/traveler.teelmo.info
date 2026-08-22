@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useRef } from 'react';
-import '../styles/styles.less';
+import { useCallback, useEffect, useRef } from 'react';
+import '../styles/styles.css';
 
 // https://www.highcharts.com/
 import Highcharts from 'highcharts';
